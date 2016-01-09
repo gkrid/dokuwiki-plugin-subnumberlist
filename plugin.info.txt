@@ -1,0 +1,7 @@
+base subnumberlist
+author Szymon Olewniczak
+email dokuwiki@imz.re
+date 2016-01-09
+name subnumberlist
+desc Change numbering style in ordered list.
+url http://www.dokuwiki.org/plugin:subnumberlist
