@@ -58,7 +58,7 @@ class syntax_plugin_subnumberlist extends DokuWiki_Syntax_Plugin {
        	return $r;
     }
     
-    private $previous_level;
+    private $previous_level = 0;
     function handle($match, $state, $pos, &$handler)
     {
         switch ($state) {
@@ -67,7 +67,6 @@ class syntax_plugin_subnumberlist extends DokuWiki_Syntax_Plugin {
             	$level = $this->interpretSyntax($match, $type); 
             	
  		$this->levels_map[$level] = 0;
-            	$this->previous_level = 0;
                 $this->levels[0] = 1;
                 $this->types[0] = $type;
                 
@@ -76,7 +75,20 @@ class syntax_plugin_subnumberlist extends DokuWiki_Syntax_Plugin {
             break;
             case DOKU_LEXER_EXIT:
             	//list_close
-               return array('END_ELEMENT', 'END_LIST');
+       		$prev_lvl = $this->previous_level;
+ 		
+       		$r = array();
+       		for ($i = $prev_lvl; $i >= 0; $i--) {
+       			$r[] = 'END_ELEMENT';
+       			$r[] = array('END_LIST', $this->types[$i]);
+       		}
+       		//return to start state
+       		$this->previous_level = 0;
+       		$this->levels_map = array();	
+		$this->levels = array();	
+    		$this->types = array();
+    		
+       		return $r;
             break;
             case DOKU_LEXER_MATCHED:
             	//list_item
