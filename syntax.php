@@ -59,7 +59,7 @@ class syntax_plugin_subnumberlist extends DokuWiki_Syntax_Plugin {
     }
     
     private $previous_level = 0;
-    function handle($match, $state, $pos, &$handler)
+    function handle($match, $state, $pos, Doku_Handler $handler)
     {
         switch ($state) {
             case DOKU_LEXER_ENTER:
@@ -144,7 +144,7 @@ class syntax_plugin_subnumberlist extends DokuWiki_Syntax_Plugin {
         return true;
     }
 
-    function render($mode, &$renderer, $data) {
+    function render($mode, Doku_Renderer $renderer, $data) {
 	if($mode == 'xhtml'){
        		foreach ($data as $action) {
        		    if (is_array($action))
