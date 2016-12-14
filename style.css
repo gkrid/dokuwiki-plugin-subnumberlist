@@ -1,0 +1,65 @@
+
+.subnumberlist li {
+	list-style: none;
+}
+
+.subnumberlist ol {
+	padding: 0;
+}
+
+.subnumberlist li:before {
+  display: block;
+  padding-right: 5px;
+  float: left;
+ }
+ 
+.subnumberlist > ol {
+  counter-reset: subnumberlist-counter1;
+}
+
+.subnumberlist ol > li:before {
+  content: counter(subnumberlist-counter1) ". ";
+}
+
+.subnumberlist ol > li {
+  counter-increment: subnumberlist-counter1;
+}
+
+/*level 2*/
+.subnumberlist ol > li ol {
+  counter-reset: subnumberlist-counter2;
+}
+
+.subnumberlist ol > li ol > li:before {
+  content: counter(subnumberlist-counter1) "." counter(subnumberlist-counter2) ". ";
+}
+
+.subnumberlist ol > li ol > li {
+  counter-increment: subnumberlist-counter2;
+}
+
+/*level 3*/
+.subnumberlist ol > li ol > li ol {
+  counter-reset: subnumberlist-counter3;
+}
+
+.subnumberlist ol > li ol > li ol > li:before {
+  content: counter(subnumberlist-counter1) "." counter(subnumberlist-counter2) "." counter(subnumberlist-counter3) ". ";
+}
+
+.subnumberlist ol > li ol > li ol > li {
+  counter-increment: subnumberlist-counter3;
+}
+
+/*level 4*/
+.subnumberlist ol > li ol > li ol > li ol {
+  counter-reset: subnumberlist-counter4;
+}
+
+.subnumberlist ol > li ol > li ol > li ol > li:before {
+  content: counter(subnumberlist-counter1) "." counter(subnumberlist-counter2) "." counter(subnumberlist-counter3) "." counter(subnumberlist-counter4) ". ";
+}
+
+.subnumberlist ol > li ol > li ol > li ol > li {
+  counter-increment: subnumberlist-counter4;
+}
