@@ -1,7 +1,7 @@
 base subnumberlist
 author Szymon Olewniczak
-email dokuwiki@imz.re
-date 2016-01-13
+email (my first name) [at] imz [dot] re
+date 2016-12-14
 name subnumberlist
 desc Change numbering style in ordered list.
 url http://www.dokuwiki.org/plugin:subnumberlist
