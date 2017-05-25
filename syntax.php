@@ -1,10 +1,4 @@
 <?php
-/**
- * Plugin Color: Sets new colors for text and background.
- * 
- * @license    GPL 2 (http://www.gnu.org/licenses/gpl.html)
- */
- 
 // must be run within Dokuwiki
 if(!defined('DOKU_INC')) die();
  
